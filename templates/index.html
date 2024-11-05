@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='geral.css')}}">
+</head>
+<body>
+    <section class="home">
+        <div class="container">
+            <h1>Sistema de Gestão de Obras de Arte</h1>
+
+            {% for obra in lista_obras %}
+
+            <section id="classe-{{obra.get_id()}}">
+                <h1>Nome da obra: {{obra.get_nome()}} </h1>
+                <img src="{{ url_for('static', filename=obra.get_foto()) }}">    
+            </section>    
+
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
